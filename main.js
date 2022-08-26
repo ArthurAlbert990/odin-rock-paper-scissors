@@ -19,10 +19,11 @@ function getUserChoice(){
 function playRound(playerSelection = getUserChoice(), computerSelection = getComputerChoice()){
     let pS = playerSelection.toLowerCase();
     let cS = computerSelection.toLowerCase();
-
+    console.log([pS, cS]);
+    
     if(pS===cS){
         return "TIE!"
-    }else{
+    } else{
         switch(pS){
             case "rock":
                 if (cS==="paper"){
@@ -37,9 +38,9 @@ function playRound(playerSelection = getUserChoice(), computerSelection = getCom
                 else{
                     return "You WIN!"
                 }
+            }
         }
     }
-}
 
 
 
