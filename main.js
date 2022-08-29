@@ -1,6 +1,6 @@
 //[OK] usuário escolhe pedra papel ou tesoura
 //[OK] computador escolhe pedra papel ou tesoura aleatoriamente
-//[EM ANDAMENTO] comparar escolha do usuario e do computador
+//[EM ANDAMENTO] comparar escolha do usuário e do computador
 //exibe mensagem com o resultado
 
 
@@ -34,8 +34,13 @@ function playRound(playerSelection = getUserChoice(), computerSelection = getCom
             case "paper":
                 if(cS==="rock"){
                     return "You LOOSE!"
-                } 
-                else{
+                } else{
+                    return "You WIN!"
+                }
+            case "scissors":
+                if(cS==="rock"){
+                    return "You LOOSE!"
+                } else{
                     return "You WIN!"
                 }
             }
