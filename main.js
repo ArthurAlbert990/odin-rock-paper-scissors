@@ -1,7 +1,7 @@
 //[OK] usuário escolhe pedra papel ou tesoura
 //[OK] computador escolhe pedra papel ou tesoura aleatoriamente
-//[EM ANDAMENTO] comparar escolha do usuário e do computador
-//exibe mensagem com o resultado
+//[OK] comparar escolha do usuário e do computador
+//[OK] exibe mensagem com o resultado
 
 
 function getComputerChoice(){
