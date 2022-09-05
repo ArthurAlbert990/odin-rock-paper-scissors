@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="style.css">
     <title>Pedra, Papel, Tesoura! </title>
 </head>
+
 <body>
-    <section class = "play-selection">
-        <button class="rock-btn" type="button">ROCK</button>
-        <button class="paper-btn" type="button">PAPER</button>
-        <button class="scissors-btn" type="button">SCISSORS</button>
+    <section class="navbar">
+        <p>ROCK PAPER SCISSORS!</p>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#profile">PROFILE</a></li>
+        </ul>
     </section>
-    <div class="result"><p>Click above to play! </p></div>
+    <section class="content">
+        <section class="scoreboard">
+            <div class="user-points">
+                <p>0</p>
+            </div>
+            <p>x</p>
+            <div class="machine-points">
+                <p>0</p>
+            </div>
+        </section>
+        <section class="play-selection">
+            <div class="card">
+                <img class="rock-btn" src="./icons/rock-svgrepo-com.svg"></img>
+            </div>
+            <div class="card">
+                <img class="paper-btn" src="./icons/paper-svgrepo-com.svg"></img>
+            </div>
+            <div class="card">
+                <img class="scissors-btn" src="./icons/scissors-svgrepo-com.svg"></img>
+            </div>
+        </section>
+        <section class="result">
+            <p>Choose to play!</p>
+        </section>
+    </section>
 
-
-<!-- javascript -->   
-<script src="main.js"></script>   
+    <section class="footer">
+        <p>By: Arthur Albert - TOP 2022</p>
+    </section>
+    <!-- javascript -->
+    <script src="main.js"></script>
 </body>
+
 </html>

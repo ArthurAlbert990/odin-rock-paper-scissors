@@ -55,11 +55,21 @@ function playRound(playerSelection = getUserChoice(), computerSelection = getCom
 function game(round){
     if(round[0].includes('WIN')){
         roundWinCount += 1;
+        userScorePara.textContent = `${roundWinCount}`
+        resultPara.style.color = "green"
     } 
+    else if(round[0].includes('LOOSE')){
+        machinePoints +=1;
+        machineScorePara.textContent = `${machinePoints}`
+        resultPara.style.color = "red";
+    }
 
     if(roundWinCount>=5){
-        alert('Congratulations, you have WON 5 rounds against the machine ! ! !')
         roundWinCount = 0;
+        machinePoints = 0;
+        machineScorePara.textContent = `${machinePoints}`
+        userScorePara.textContent = `${roundWinCount}`
+        alert('Congratulations, you have WON 5 rounds against the machine ! ! !')
     }
 
     return ;
@@ -69,8 +79,9 @@ function game(round){
 // RPS-UI BRANCH
 //global var to store last result
 let roundResult
-//global var to store how many games he has won
-let roundWinCount= 0;
+//global var to store round points
+let roundWinCount = 0;
+let machinePoints = 0;
 
 //Select buttons
 const rockButton = document.querySelector(".rock-btn");
@@ -79,6 +90,10 @@ const scissorsButton = document.querySelector(".scissors-btn");
 
 //select result text
 const resultPara = document.querySelector(".result")
+
+//select scoreboard texts
+const userScorePara = document.querySelector(".user-points").firstElementChild;
+const machineScorePara = document.querySelector(".machine-points").firstElementChild;
 
 //add event listeners on button click
 rockButton.addEventListener('click', function () {
@@ -90,7 +105,7 @@ rockButton.addEventListener('click', function () {
 paperButton.addEventListener('click', function(){
     roundResult = playRound('paper',);
     resultPara.textContent=`${roundResult[0]}`;
-    game(roundResult);
+    game(roundResult)
 });
 scissorsButton.addEventListener('click', function(){
     roundResult = playRound('scissors',);
