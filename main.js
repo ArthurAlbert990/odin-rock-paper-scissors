@@ -7,16 +7,17 @@
 function getComputerChoice(){
     let options = ["Rock","Paper", "Scissors"]
 
-    let computerChoice = Math.floor(Math.random() * (options.length))
+    let computerChoice = Math.floor(Math.random() * (options.length));
 
     return options[computerChoice];
 }
 
 function getUserChoice(){
-    return userChoice = prompt("Rock, Paper or Scissors?");
+    return prompt("Rock, Paper or Scissors?");
 }
 
 function playRound(playerSelection = getUserChoice(), computerSelection = getComputerChoice()){
+    console.log(playerSelection,computerSelection)
     let pS = playerSelection.toLowerCase();
     let cS = computerSelection.toLowerCase();
     let roundChoices = [pS, cS];
@@ -48,15 +49,51 @@ function playRound(playerSelection = getUserChoice(), computerSelection = getCom
         }
     }
 
+//refactored function on RPS-UI branch to follow round count:
+// the user WINs the full game when he wins 5 rounds
 
-function game(rounds){
-    let fullGameResult = []
+function game(round){
+    if(round[0].includes('WIN')){
+        roundWinCount += 1;
+    } 
 
-    for (let x =1; x<=rounds; x++){
-        let roundResult = playRound()
-        fullGameResult.push(roundResult[1]);
-        window.alert(roundResult[0]);
+    if(roundWinCount>=5){
+        alert('Congratulations, you have WON 5 rounds against the machine ! ! !')
+        roundWinCount = 0;
     }
 
-    return fullGameResult;
+    return ;
 }
+
+
+// RPS-UI BRANCH
+//global var to store last result
+let roundResult
+//global var to store how many games he has won
+let roundWinCount= 0;
+
+//Select buttons
+const rockButton = document.querySelector(".rock-btn");
+const paperButton = document.querySelector(".paper-btn");
+const scissorsButton = document.querySelector(".scissors-btn");
+
+//select result text
+const resultPara = document.querySelector(".result")
+
+//add event listeners on button click
+rockButton.addEventListener('click', function () {
+    roundResult = playRound('rock',);
+    resultPara.textContent = `${roundResult[0]}`;
+    game(roundResult);
+
+}); //playRound on callback instead of direct calling it
+paperButton.addEventListener('click', function(){
+    roundResult = playRound('paper',);
+    resultPara.textContent=`${roundResult[0]}`;
+    game(roundResult);
+});
+scissorsButton.addEventListener('click', function(){
+    roundResult = playRound('scissors',);
+    resultPara.textContent=`${roundResult[0]}`;
+    game(roundResult);
+});
